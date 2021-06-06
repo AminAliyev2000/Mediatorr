@@ -14,7 +14,7 @@ namespace Mediatorr.ViewModels
         public Chat(StartPage startPage,string nickname)
         {
 
-            StartPages = startPage;
+            StartPage = startPage;
             Nickname = nickname;
             SendCommand = new RelayCommand(SendClick);
             LeaveCommand = new RelayCommand(LeaveClick);
@@ -23,7 +23,7 @@ namespace Mediatorr.ViewModels
         
        
 
-        public StartPage StartPages { get; set; }
+        public StartPage StartPage { get; set; }
         public string Nickname { get; set; }
         public RelayCommand SendCommand { get; set; }
         public RelayCommand LeaveCommand { get; set; }
@@ -33,7 +33,7 @@ namespace Mediatorr.ViewModels
         {
             if (parameter is TextBox textBox && string.IsNullOrWhiteSpace(textBox.Text) == false)
             {
-                StartPages.NotifyAllSubscribers($"{Nickname} : {textBox.Text}");
+                StartPage.NotifyAllSubscribers($"{Nickname} : {textBox.Text}");
                 textBox.Text = default;
             }
         }
@@ -53,8 +53,8 @@ namespace Mediatorr.ViewModels
 
         private void ExitUser()
         {
-            StartPages.Unsubscribe(this);
-            StartPages.NotifyAllSubscribers($"{Nickname} : Left");
+            StartPage.Unsubscribe(this);
+            StartPage.NotifyAllSubscribers($"{Nickname} : Left at {DateTime.Now}");
         }
     }
 }

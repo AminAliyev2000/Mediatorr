@@ -36,7 +36,7 @@ namespace Mediatorr.ViewModels
         private void JoinClick(object parameter = null)
         {
             Subscribe();
-            NotifyAllSubscribers($"{Nickname} : Joined");
+            NotifyAllSubscribers($"{Nickname} : Joined at {DateTime.Now}");
             Nickname = default;
         }
 
