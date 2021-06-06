@@ -1,0 +1,79 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="GetINButton" TargetType="{x:Type Button}">
+
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="DarkCyan"/>
+        <Setter Property="Foreground" Value="AliceBlue"/>
+        <Setter Property="Margin" Value="5" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="FontSize" Value="20"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="GetInBorder" CornerRadius="20" Background="{TemplateBinding Background}" BorderBrush="Blue" BorderThickness="2.5">
+                        <Grid>
+                            <ContentPresenter x:Name="GetINContentPresenter"
+                                              Content="{TemplateBinding Content}" 
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SendButton" TargetType="{x:Type Button}">
+
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="Blue"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="FontSize" Value="20"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="SendBorder" CornerRadius="20" Background="{TemplateBinding Background}" BorderBrush="Red" BorderThickness="2.5">
+                        <Grid>
+                            <ContentPresenter x:Name="SendContentPresenter"
+                                              Content="{TemplateBinding Content}"
+                                              HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="GetOUTButton" TargetType="{x:Type Button}">
+
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="Red"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="FontSize" Value="24"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="GetOUTBorder" CornerRadius="20" Background="{TemplateBinding Background}" BorderBrush="NavajoWhite" BorderThickness="2.5">
+                        <Grid>
+                            <ContentPresenter x:Name="MyContentPresenter" 
+                                              Content="{TemplateBinding Content}"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

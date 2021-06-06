@@ -1,0 +1,79 @@
+﻿<Window x:Class="Mediatorr.Views.WindowOfChat"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Mediatorr.Views"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d"
+        Title="WindowOfChat" Height="450" Width="800">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Closing">
+            <i:InvokeCommandAction Command="{Binding CloseCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="*">
+
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="Cyan" Grid.ColumnSpan="2">
+            <ListBox ItemsSource="{Binding StartPage.Messages}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                     ScrollViewer.VerticalScrollBarVisibility="Auto" x:Name="LstBxChat">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Background="Gray" Width="{Binding ElementName=LstBxChat, Path=ActualWidth}" Height="50">
+                            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                                <TextBlock Text="{Binding}" HorizontalAlignment="Center"  
+                                           FontSize="18" Foreground="White" TextWrapping="Wrap"/>
+                            </ScrollViewer>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        <Grid Grid.Row="1">
+            <TextBox FontSize="18" 
+                     TextWrapping="Wrap" 
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                      Padding="10, 7, 0, 0"
+                     x:Name="TxtBxMessage" 
+                     BorderThickness="0"/>
+
+        </Grid>
+        <Grid Grid.Row="2" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*">
+                </ColumnDefinition>
+                <ColumnDefinition Width="5*">
+                </ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0"
+                    Content="Send" FontSize="18" Command="{Binding SendCommand}"
+                    CommandParameter="{Binding ElementName=TxtBxMessage}" Margin="8"
+                    Style="{StaticResource SendButton}">
+
+            </Button>
+            <Button Grid.Column="1"
+                    Content="Left" FontSize="18" Command="{Binding LeaveCommand}" 
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Margin="8" 
+                    Style="{StaticResource GetOUTButton}">
+
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

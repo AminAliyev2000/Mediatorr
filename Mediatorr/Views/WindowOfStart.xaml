@@ -1,0 +1,43 @@
+﻿<Window x:Class="Mediatorr.Views.WindowOfStart"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Mediatorr.Views"
+        mc:Ignorable="d"
+        Title="Chat Program"
+        Height="450" Width="450" 
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        >
+    <Grid Background="Cyan">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" 
+                   
+                   Background="Cyan"
+                   
+                   Text="Enter Your Nickname :" 
+                   FontSize="20"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Foreground="AliceBlue"/>
+        <Border Grid.Row="1" CornerRadius="10" BorderThickness="3" BorderBrush="AliceBlue">
+            <TextBox BorderThickness="0"
+                     Margin="10"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     FontSize="18"
+                     HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     TextWrapping="Wrap" 
+                     x:Name="NicknameTxtBox"
+                     Text="{Binding Nickname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     Background="DarkCyan" Foreground="White"/>
+        </Border>
+        <Button Grid.Row="2"  Content="Join" Style="{StaticResource GetINButton}" Command="{Binding JoinCommand}"/>
+    </Grid>
+</Window>
